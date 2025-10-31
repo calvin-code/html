@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSC 441 — Lab 1: HTML & CSS Basics</title>
+
+  <!-- Task 3: Embedded CSS (affects only the first paragraph inside the <div>) -->
+  <style>
+    /* This selector targets only the first <p> inside any <div> */
+    div p:first-of-type {
+      color: blue;
+    }
+  </style>
+
+  <!-- Task 4: Link to external stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Task 1: Basic HTML Structure -->
+  <!-- HTML is the structure; CSS is the style. -->
+  <p>HTML provides the structure of a webpage using meaningful tags, while CSS handles the presentation and visual styling. Keeping them organized makes pages cleaner and easier to maintain.</p>
+  <ul>
+    <li><strong>Inline CSS</strong> — styles written directly on an element via the <code>style</code> attribute.</li>
+    <li><strong>Embedded CSS</strong> — styles placed inside a <code>&lt;style&gt;</code> tag in the document <code>&lt;head&gt;</code>.</li>
+    <li><strong>External CSS</strong> — styles stored in a separate <code>.css</code> file linked from the HTML.</li>
+  </ul>
+
+  <!-- Task 2: Three h2 headings (inline style on the second one) -->
+  <h2>Heading One (regular)</h2>
+  <h2 style="color: green; font-family: monospace;">Heading Two (green, monospace via inline CSS)</h2>
+  <h2>Heading Three (regular)</h2>
+
+  <!-- Task 3: Div with three paragraphs (first should appear blue due to embedded CSS above) -->
+  <!-- only the FIRST paragraph inside this <div> should be blue. -->
+  <div>
+    <p>This is the first paragraph in the div (should be blue).</p>
+    <p>This is the second paragraph in the div.</p>
+    <p>This is the third paragraph in the div.</p>
+  </div>
+
+  <!-- Task 4: Three new paragraphs; apply the external .boxy class to the second paragraph -->
+  <!-- external CSS lives in style.css -->
+  <p>External CSS paragraph #1 (no special class).</p>
+  <p class="boxy">External CSS paragraph #2 (has a 2px black border and a 2px gray shadow to the right/bottom).</p>
+  <p>External CSS paragraph #3 (no special class).</p>
+
+  <!-- Task 5: 3x3 table with an inline 2px solid black border -->
+  <!-- rows follow the spec exactly. -->
+  <table style="border: solid 2px black;">
+    <tr>
+      <td>Inline CSS</td>
+      <td>Embedded CSS</td>
+      <td>External CSS</td>
+    </tr>
+    <tr>
+      <td>Color</td>
+      <td>Font size</td>
+      <td>Font family/style</td>
+    </tr>
+    <tr>
+      <td>Padding</td>
+      <td>Border</td>
+      <td>Margin</td>
+    </tr>
+  </table>
+</body>
+</html>
+

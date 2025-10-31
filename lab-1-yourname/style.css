@@ -1,0 +1,7 @@
+/* Task 4: External stylesheet */
+/*  .boxy adds a 2px solid border and a 2px gray shadow to the right/bottom only. */
+.boxy {
+  border: 2px solid black;
+  /* Right & bottom shadow: offset-x=2px, offset-y=2px, no blur for a crisp "solid" look */
+  box-shadow: 2px 2px 0 gray;
+}

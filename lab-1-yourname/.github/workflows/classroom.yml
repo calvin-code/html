@@ -1,0 +1,228 @@
+name: Autograding Tests
+"on": push
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: HTML includes the correct DOCTYPE
+        id: html-includes-the-correct-doctype
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: HTML includes the correct DOCTYPE
+          setup-command: npm install
+          command: npm test -- tests/task1/1.test.js
+          timeout: 10
+          max-score: 4
+      - name: HTML has lang attribute set to English
+        id: html-has-lang-attribute-set-to-english
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: HTML has lang attribute set to English
+          setup-command: npm install
+          command: npm test -- tests/task1/2.test.js
+          timeout: 10
+          max-score: 4
+      - name: HTML <head> contains title and charset
+        id: html-head-contains-title-and-charset
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: HTML <head> contains title and charset
+          setup-command: npm install
+          command: npm test -- tests/task1/3.test.js
+          timeout: 10
+          max-score: 4
+      - name: HTML <body> contains paragraph and list elements
+        id: html-body-contains-paragraph-and-list-elements
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: HTML <body> contains paragraph and list elements
+          setup-command: npm install
+          command: npm test -- tests/task1/4.test.js
+          timeout: 10
+          max-score: 4
+      - name: HTML <body> contains unordered list with three list items
+        id: html-body-contains-unordered-list-with-three-list-items
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: HTML <body> contains unordered list with three list items
+          setup-command: npm install
+          command: npm test -- tests/task1/5.test.js
+          timeout: 10
+          max-score: 4
+      - name: HTML has three <h2> headings
+        id: html-has-three-h2-headings
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: HTML has three <h2> headings
+          setup-command: npm install
+          command: npm test -- tests/task2/1.test.js
+          timeout: 10
+          max-score: 10
+      - name: Second <h2> has the correct inline CSS
+        id: second-h2-has-the-correct-inline-css
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Second <h2> has the correct inline CSS
+          setup-command: npm install
+          command: npm test -- tests/task2/2.test.js
+          timeout: 10
+          max-score: 10
+      - name: HTML <div> section contains at least three paragraphs
+        id: html-div-section-contains-at-least-three-paragraphs
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: HTML <div> section contains at least three paragraphs
+          setup-command: npm install
+          command: npm test -- tests/task3/1.test.js
+          timeout: 10
+          max-score: 7
+      - name: HTML file includes embedded CSS
+        id: html-file-includes-embedded-css
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: HTML file includes embedded CSS
+          setup-command: npm install
+          command: npm test -- tests/task3/2.test.js
+          timeout: 10
+          max-score: 7
+      - name: embedded CSS includes selector for blue div
+        id: embedded-css-includes-selector-for-blue-div
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: embedded CSS includes selector for blue div
+          setup-command: npm install
+          command: npm test -- tests/task3/3.test.js
+          timeout: 10
+          max-score: 6
+      - name: HTML <body> section contains at least three paragraphs
+        id: html-body-section-contains-at-least-three-paragraphs
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: HTML <body> section contains at least three paragraphs
+          setup-command: npm install
+          command: npm test -- tests/task4/1.test.js
+          timeout: 10
+          max-score: 5
+      - name: HTML file includes external CSS
+        id: html-file-includes-external-css
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: HTML file includes external CSS
+          setup-command: npm install
+          command: npm test -- tests/task4/2.test.js
+          timeout: 10
+          max-score: 5
+      - name: CSS file includes the .boxy class
+        id: css-file-includes-the-boxy-class
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: CSS file includes the .boxy class
+          setup-command: npm install
+          command: npm test -- tests/task4/3.test.js
+          timeout: 10
+          max-score: 5
+      - name: CSS .boxy class has required styles
+        id: css-boxy-class-has-required-styles
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: CSS .boxy class has required styles
+          setup-command: npm install
+          command: npm test -- tests/task4/4.test.js
+          timeout: 10
+          max-score: 5
+      - name: HTML <body> includes a <table> element
+        id: html-body-includes-a-table-element
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: HTML <body> includes a <table> element
+          setup-command: npm install
+          command: npm test -- tests/task5/1.test.js
+          timeout: 10
+          max-score: 2
+      - name: "<table> contains at least three rows"
+        id: table-contains-at-least-three-rows
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "<table> contains at least three rows"
+          setup-command: npm install
+          command: npm test -- tests/task5/2.test.js
+          timeout: 10
+          max-score: 3
+      - name: "<table> contains at least three columns"
+        id: table-contains-at-least-three-columns
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "<table> contains at least three columns"
+          setup-command: npm install
+          command: npm test -- tests/task5/3.test.js
+          timeout: 10
+          max-score: 3
+      - name: table rows describe CSS locations
+        id: table-rows-describe-css-locations
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: table rows describe CSS locations
+          setup-command: npm install
+          command: npm test -- tests/task5/4.test.js
+          timeout: 10
+          max-score: 3
+      - name: table rows describe CSS text properties
+        id: table-rows-describe-css-text-properties
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: table rows describe CSS text properties
+          setup-command: npm install
+          command: npm test -- tests/task5/5.test.js
+          timeout: 10
+          max-score: 3
+      - name: table rows describe box model values
+        id: table-rows-describe-box-model-values
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: table rows describe box model values
+          setup-command: npm install
+          command: npm test -- tests/task5/6.test.js
+          timeout: 10
+          max-score: 3
+      - name: table includes inline attribute for border style
+        id: table-includes-inline-attribute-for-border-style
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: table includes inline attribute for border style
+          setup-command: npm install
+          command: npm test -- tests/task5/7.test.js
+          timeout: 10
+          max-score: 3
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          HTML-INCLUDES-THE-CORRECT-DOCTYPE_RESULTS: "${{steps.html-includes-the-correct-doctype.outputs.result}}"
+          HTML-HAS-LANG-ATTRIBUTE-SET-TO-ENGLISH_RESULTS: "${{steps.html-has-lang-attribute-set-to-english.outputs.result}}"
+          HTML-HEAD-CONTAINS-TITLE-AND-CHARSET_RESULTS: "${{steps.html-head-contains-title-and-charset.outputs.result}}"
+          HTML-BODY-CONTAINS-PARAGRAPH-AND-LIST-ELEMENTS_RESULTS: "${{steps.html-body-contains-paragraph-and-list-elements.outputs.result}}"
+          HTML-BODY-CONTAINS-UNORDERED-LIST-WITH-THREE-LIST-ITEMS_RESULTS: "${{steps.html-body-contains-unordered-list-with-three-list-items.outputs.result}}"
+          HTML-HAS-THREE-H2-HEADINGS_RESULTS: "${{steps.html-has-three-h2-headings.outputs.result}}"
+          SECOND-H2-HAS-THE-CORRECT-INLINE-CSS_RESULTS: "${{steps.second-h2-has-the-correct-inline-css.outputs.result}}"
+          HTML-DIV-SECTION-CONTAINS-AT-LEAST-THREE-PARAGRAPHS_RESULTS: "${{steps.html-div-section-contains-at-least-three-paragraphs.outputs.result}}"
+          HTML-FILE-INCLUDES-EMBEDDED-CSS_RESULTS: "${{steps.html-file-includes-embedded-css.outputs.result}}"
+          EMBEDDED-CSS-INCLUDES-SELECTOR-FOR-BLUE-DIV_RESULTS: "${{steps.embedded-css-includes-selector-for-blue-div.outputs.result}}"
+          HTML-BODY-SECTION-CONTAINS-AT-LEAST-THREE-PARAGRAPHS_RESULTS: "${{steps.html-body-section-contains-at-least-three-paragraphs.outputs.result}}"
+          HTML-FILE-INCLUDES-EXTERNAL-CSS_RESULTS: "${{steps.html-file-includes-external-css.outputs.result}}"
+          CSS-FILE-INCLUDES-THE-BOXY-CLASS_RESULTS: "${{steps.css-file-includes-the-boxy-class.outputs.result}}"
+          CSS-BOXY-CLASS-HAS-REQUIRED-STYLES_RESULTS: "${{steps.css-boxy-class-has-required-styles.outputs.result}}"
+          HTML-BODY-INCLUDES-A-TABLE-ELEMENT_RESULTS: "${{steps.html-body-includes-a-table-element.outputs.result}}"
+          TABLE-CONTAINS-AT-LEAST-THREE-ROWS_RESULTS: "${{steps.table-contains-at-least-three-rows.outputs.result}}"
+          TABLE-CONTAINS-AT-LEAST-THREE-COLUMNS_RESULTS: "${{steps.table-contains-at-least-three-columns.outputs.result}}"
+          TABLE-ROWS-DESCRIBE-CSS-LOCATIONS_RESULTS: "${{steps.table-rows-describe-css-locations.outputs.result}}"
+          TABLE-ROWS-DESCRIBE-CSS-TEXT-PROPERTIES_RESULTS: "${{steps.table-rows-describe-css-text-properties.outputs.result}}"
+          TABLE-ROWS-DESCRIBE-BOX-MODEL-VALUES_RESULTS: "${{steps.table-rows-describe-box-model-values.outputs.result}}"
+          TABLE-INCLUDES-INLINE-ATTRIBUTE-FOR-BORDER-STYLE_RESULTS: "${{steps.table-includes-inline-attribute-for-border-style.outputs.result}}"
+        with:
+          runners: html-includes-the-correct-doctype,html-has-lang-attribute-set-to-english,html-head-contains-title-and-charset,html-body-contains-paragraph-and-list-elements,html-body-contains-unordered-list-with-three-list-items,html-has-three-h2-headings,second-h2-has-the-correct-inline-css,html-div-section-contains-at-least-three-paragraphs,html-file-includes-embedded-css,embedded-css-includes-selector-for-blue-div,html-body-section-contains-at-least-three-paragraphs,html-file-includes-external-css,css-file-includes-the-boxy-class,css-boxy-class-has-required-styles,html-body-includes-a-table-element,table-contains-at-least-three-rows,table-contains-at-least-three-columns,table-rows-describe-css-locations,table-rows-describe-css-text-properties,table-rows-describe-box-model-values,table-includes-inline-attribute-for-border-style
